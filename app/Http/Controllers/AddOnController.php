@@ -25,31 +25,8 @@ class AddOnController extends Controller
             'storage' => ['sometimes', 'required', Rule::enum(AddOns::class)],
             'profile' => ['sometimes', 'required', Rule::enum(AddOns::class)],
         ]);
-        // dd(session('plan.billingType'));
-        // name , price , billing-type
-        // TODO: refactor, the pricing service especially the billing type can possibly be omitted and put a default instead(monthly)
-        // ! must check if the key (service,storage,profile) exist
-        $addOns = [
-            'service' => [
-                'name' => $request->service,
-                'price' => PricingServices::getPrice(AddOns::tryFrom($request->service)->getPrice(), session('plan.billingType') ?? 'monthly'),
-                'billing-type' => session('plan.billingType') ?? 'monthly'
-            ],
-            'storage' => [
-                'name' => $request->storage,
-                'price' => PricingServices::getPrice(AddOns::tryFrom($request->storage)->getPrice(), session('plan.billingType') ?? 'monthly'),
-                'billing-type' => session('plan.billingType')
-            ],
-            'profile' => [
-                'name' => $request->profile,
-                'price' => PricingServices::getPrice(AddOns::tryFrom($request->profile)->getPrice(), session('plan.billingType') ?? 'monthly'),
-                'billing-type' => session('plan.billingType')
-            ],
-        ];
-        // $plan = $request->plan;
-        // $billingType = $request->get('billing_type') ?? 'monthly';
-        // $montlyPrice = SubscriptionPlans::tryFrom($plan)->getPrice();
-        // $price = Pricing::getPrice($montlyPrice, $billingType);
+
+        $addOns = $this->generateSessionData($validatedData);
 
         $this->storeFormSessionData(FormSection::ADDONS, $addOns);
         return redirect('/summary');

@@ -5,7 +5,6 @@
         <h2 class="text-red-500"> This is the Info form field. </h2>
         <form class="space-y-2" method="POST" action="/">
             @csrf
-            {{-- TODO: client side validation --}}
             <fieldset>
                 <label for="name">Name: </label>
                 <input type="text" class="border" name="name" id="name"

@@ -12,7 +12,7 @@
     <title>{{ $title }}</title>
 </head>
 
-<body>
+<body class="p-8">
     <header>
         <h1>{{ $heading }}</h1>
         <x-nav />
