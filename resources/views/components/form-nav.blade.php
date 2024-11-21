@@ -4,4 +4,4 @@
     <a href="{{ $backPath }}">Go Back</a>
 @endif
 
-<button type="submit">{{ $slot }}</button>
+<button {{ $attributes->merge(['type' => 'submit']) }}>{{ $slot }}</button>

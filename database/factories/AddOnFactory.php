@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,11 @@ class AddOnFactory extends Factory
     {
         return [
             'name' => 'Online service',
+            'subscriptions' => Subscription::factory(),
             'price' => 2,
             'subscription_type' => 'monthly',
             'start_date' => now(),
-            'end_date' => now()->addMonth()
+            'end_date' => now()->addMonth(),
         ];
     }
 }

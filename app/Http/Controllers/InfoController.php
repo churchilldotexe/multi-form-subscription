@@ -21,7 +21,7 @@ class InfoController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
-            'name' => ['required',],
+            'name' => ['required','min:3'],
             'email' => ['required', 'email', 'unique:App\\Models\\User'],
             'phone' => ['required','min:10']
         ]);
