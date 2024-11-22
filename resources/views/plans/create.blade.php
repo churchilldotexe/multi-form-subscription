@@ -3,7 +3,7 @@
     <x-slot:heading>Select your Plan</x-slot:heading>
     <section>
         <h2 class=""> This is the Plans form field. </h2>
-        <form method="POST" action="/plans">
+        <form method="POST" action="/plans" id="plans-form">
             @csrf
             <fieldset>
                 <legend>Select your plan</legend>
@@ -39,7 +39,7 @@
             <fieldset>
                 <label for="billing-type">
                     <input type="checkbox" id="billing-type" name="billing-type" class="peer" value="yearly"
-                        @checked( session('plan.billingType') === 'yearly' || old('billing-type'))>
+                        @checked(session('plan.billingType') === 'yearly' || old('billing-type'))>
                     <p class="peer-checked:hidden">monthly</p>
                     <p class="hidden peer-checked:block">yearly</p>
                 </label>
@@ -49,7 +49,9 @@
                 @enderror
             </fieldset>
 
-            <x-form-nav>Next Step</x-form-nav>
         </form>
+        <x-slot:footer>
+            <x-form-nav prevPath="/" form="plans-form">Next Step</x-form-nav>
+        </x-slot:footer>
     </section>
 </x-layout>

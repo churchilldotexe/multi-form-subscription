@@ -3,7 +3,7 @@
     <x-slot:heading>Pick add-ons</x-slot:heading>
     <section>
         <h2 class=""> This is the add-ons form field. </h2>
-        <form method="POST" action="/add-ons">
+        <form method="POST" action="/add-ons" id="add-ons-form">
             @csrf
             <fieldset>
                 <label for="service">
@@ -41,7 +41,9 @@
                 @enderror
             </fieldset>
 
-            <x-form-nav>Next Step</x-form-nav>
+            <x-slot:footer>
+                <x-form-nav prevPath="/plans" form="add-ons-form">Next Step</x-form-nav>
+            </x-slot:footer>
         </form>
     </section>
 </x-layout>

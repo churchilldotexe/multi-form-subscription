@@ -22,6 +22,10 @@
                 @endforeach
             </div>
         @endsession
-        <x-form-nav>Confirm</x-form-nav>
+
+        <x-slot:footer>
+            <!-- must be a form -->
+            <x-form-nav prevPath="/add-ons" form="confirmation-form">Confirm</x-form-nav>
+        </x-slot:footer>
     </section>
 </x-layout>

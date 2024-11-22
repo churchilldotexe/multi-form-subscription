@@ -2,8 +2,7 @@
 
 <fieldset class="flex flex-col py-2">
     <div class="flex gap-2 items-center justify-between">
-        <label :for="$name"
-            class="font-semibold  max-w-fit w-full bg-red-400 text-blue-950 ">{{ $slot }}</label>
+        <label :for="$name" class="font-semibold  max-w-fit w-full text-blue-950 ">{{ $slot }}</label>
 
         @error("$name")
             <p class="text-red-500  font-semibold text-xs line-clamp-1 ">{{ $message }}</p>

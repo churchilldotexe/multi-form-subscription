@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                madison: '#072b57'
+            }
         },
     },
     plugins: [],

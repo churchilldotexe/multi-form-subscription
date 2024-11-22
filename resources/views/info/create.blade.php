@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Information Field</x-slot:title>
-    <section class="absolute top-[15%] bg-neutral-50 rounded-md left-1/2 -translate-x-1/2 px-3 py-4 w-[90%]">
+    <section class=" absolute top-[15%] bg-neutral-50 rounded-md left-1/2 -translate-x-1/2 px-3 py-4 w-[90%]">
         <h1 class="font-bold text-2xl text-blue-950"> Personal Info</h1>
         <h2 class="text-neutral-500">Please provide your name,email, address, and phone number</h2>
         <form class="space-y-2" id="info-form" method="POST" action="/">
