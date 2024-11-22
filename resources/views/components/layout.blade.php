@@ -21,6 +21,7 @@
     <main class="h-3/4 bg-slate-200">
         {{ $slot }}
     </main>
+    <!-- FIX: all of the affected page that doesnt have the footer  -->
     <footer>
         {{ $footer }}
     </footer>

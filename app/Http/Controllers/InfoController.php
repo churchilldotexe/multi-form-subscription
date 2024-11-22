@@ -3,31 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Enums\FormSection;
+use App\Http\Requests\InfoRequest;
 use App\Traits\HandlesFormSessions;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class InfoController extends Controller
 {
     use HandlesFormSessions;
+
     public function create(): View
     {
         $this->regenerateSession();
+
         return view('info.create');
     }
 
-
-    public function store(Request $request): RedirectResponse
+    public function store(InfoRequest $request): RedirectResponse
     {
-        $validatedData = $request->validate([
-            'name' => ['required','min:3'],
-            'email' => ['required', 'email', 'unique:App\\Models\\User'],
-            'phone' => ['required','min:10']
-        ]);
+        $validatedData = $request->validated();
 
         $this->storeFormSessionData(FormSection::INFO, $validatedData);
-
 
         return redirect('/plans');
     }
